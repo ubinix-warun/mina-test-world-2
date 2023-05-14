@@ -1,1 +1,1 @@
-# mina-test-world-2
+# MINA TestWorld 2.0

@@ -1,9 +1,10 @@
 # Testworld Mission 2.0 -- MINA
 
 ```
-zk config zkTestWorld
 
-./make.sh vpc-create
-./make.sh <>
+docker run --rm -v `pwd`:/app/prj \
+    -v ~/.aws:/root/.aws \
+    -p 8888:8888 \
+    -it jupyter-tf:v2
 
 ```

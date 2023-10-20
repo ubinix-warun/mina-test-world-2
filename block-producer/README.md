@@ -102,3 +102,15 @@ sudo systemctl restart mina
 sudo systemctl status mina
 
 ```
+
+
+## Check MINA daemon
+
+```
+mina client status
+
+```
+
+# Credit 
+
+* [Core-Node-Team/Testnet-TR](https://github.com/Core-Node-Team/Testnet-TR/blob/main/Mina/Mina-Eng.md)

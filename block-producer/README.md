@@ -1,5 +1,5 @@
 
-# Setup MINA - Block Produczer
+# Setup MINA - Block Producer
 
 ## Install MINA Berkeley for TestWorld 2.0 
 
@@ -10,7 +10,7 @@ sudo apt-get update
 sudo apt-get install -y mina-berkeley=2.0.0rampup5-55b7818
 ```
 
-
+FYI, Recommend to use Debian 11 (bullseye)
 
 ## Setup user and secret keys.
 

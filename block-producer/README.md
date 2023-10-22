@@ -16,12 +16,8 @@ FYI, Recommend to use Debian 11 (bullseye)
 
 ```
 sudo adduser mina 
-# set password your mina 
+# set password your mina
 
-```
-
-
-```
 sudo mkdir /mina
 sudo chown mina:mina /mina
 
@@ -30,17 +26,18 @@ sudo chmod 700 /mina/keys
 
 ```
 
+### Import account key to /mina/keys/my-wallet
+
 ```
 sudo nano /mina/keys/my-wallet
-
 sudo chmod 600 /mina/keys/my-wallet
 
-```
-
-```
 sudo nano /mina/keys/my-wallet.pub
+# publice key
 
 ```
+
+### Generate libp2p keys on /mina/keys/keys
 
 ```
 sudo chown mina:mina /mina -R
@@ -54,7 +51,7 @@ exit
 
 ```
 
-## Config. MINA daemon
+## Config. MINA daemon and Setting pass key.
 
 ```
 sudo tee /usr/lib/systemd/system/mina.service > /dev/null << EOF
@@ -91,7 +88,7 @@ WantedBy=default.target
 EOF
 ```
 
-## Activate MINA daemon!
+## Activate MINA daemon with systemctl
 
 ```
 sudo systemctl daemon-reload
@@ -103,11 +100,72 @@ sudo systemctl status mina
 
 ```
 
-
-## Check MINA daemon
+## Check MINA node status 
 
 ```
 mina client status
+
+--
+Mina daemon status
+-----------------------------------
+
+Global number of accounts:                     201739
+Block height:                                  1517
+Max observed block height:                     1517
+Max observed unvalidated block height:         1517
+Local uptime:                                  4d10h56m53s
+Ledger Merkle root:                            jxR4PgDyBMbYvs3VsaQJ4HrSRmWs4ixZRNg4LXgKA7e2n82cQwc
+Protocol state hash:                           3NKSxoEAEXvpmDPrhYm5f3ggvwn4dwJEqvbTK22uXumNXpdpR9o1
+Chain id:                                      332c8cc05ba8de9efc23a011f57015d8c9ec96fac81d5d3f7a06969faf4bce92
+Git SHA-1:                                     55b78189c46e1811b8bdb78864cfa95409aeb96a
+Configuration directory:                       /mina/.mina-config/
+Peers:                                         101
+User_commands sent:                            0
+SNARK worker:                                  None
+SNARK work fee:                                100000000
+Sync status:                                   Synced
+Catchup status:                                
+	To build breadcrumb:           0
+	To initial validate:           0
+	Finished:                      514
+	To download:                   0
+	Waiting for parent to finish:  0
+	To verify:                     0
+
+Block producers running:                       1 (<>)
+Coinbase receiver:                             Block producer
+Best tip consensus time:                       epoch=0, slot=2140
+Best tip global slot (across all hard-forks):  2140
+Next block will be produced in:                in 1.57d for slot: 2894 slot-since-genesis: 2894 (Generated from consensus at slot: 1298 slot-since-genesis: 1298)
+Consensus time now:                            epoch=0, slot=2140
+Consensus mechanism:                           proof_of_stake
+Consensus configuration:                       
+	Delta:                     0
+	k:                         290
+	Slots per epoch:           7140
+	Slot duration:             3m
+	Epoch duration:            14d21h
+	Chain start timestamp:     2023-10-17 16:01:01.000000Z
+	Acceptable network delay:  3m
+
+Addresses and ports:                           
+	External IP:    52.197.73.178
+	Bind IP:        0.0.0.0
+	Libp2p PeerID:  <>
+	Libp2p port:    8302
+	Client port:    8301
+
+Metrics:                                       
+	block_production_delay:             7 (6 0 0 0 0 0 0)
+	transaction_pool_diff_received:     1
+	transaction_pool_diff_broadcasted:  0
+	transactions_added_to_pool:         6932
+	transaction_pool_size:              0
+	snark_pool_diff_received:           16
+	snark_pool_diff_broadcasted:        0
+	pending_snark_work:                 0
+	snark_pool_size:                    2764
+
 
 ```
 

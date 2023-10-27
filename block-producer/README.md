@@ -184,6 +184,21 @@ Metrics:
 
 ```
 
+```
+# clean journalctl
+journalctl --vacuum-time=1d
+
+# config daily logrotate
+sudo systemctl restart logrotate.service
+sudo systemctl restart logrotate.timer
+
+# flush cache
+sync; echo 1 > /proc/sys/vm/drop_caches 
+sync; echo 2 > /proc/sys/vm/drop_caches 
+sync; echo 3 > /proc/sys/vm/drop_caches
+
+```
+
 # Credit 
 
 * [Core-Node-Team/Testnet-TR](https://github.com/Core-Node-Team/Testnet-TR/blob/main/Mina/Mina-Eng.md)

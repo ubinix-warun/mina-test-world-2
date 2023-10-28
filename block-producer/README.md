@@ -115,7 +115,7 @@ sudo systemctl status mina
 
 ```
 
-## Check MINA node status 
+## Show MINA node status
 
 ```
 mina client status
@@ -184,11 +184,26 @@ Metrics:
 
 ```
 
+## Show pretty JSON log with fblog
+
+```
+wget https://github.com/brocode/fblog/releases/download/v4.4.0/fblog
+chmod +x fblog
+sudo mv fblog /usr/local/bin
+
+tail -n 1000 -f /mina/.mina-config/mina.log | fblog -c metadata -F '$key'
+
+```
+
+## (Extra) config log and run journalctl 1d.
+
 ```
 # clean journalctl
 journalctl --vacuum-time=1d
 
 # config daily logrotate
+sudo vi /etc/logrotate.d/rsyslog
+# change weekly => daily
 sudo systemctl restart logrotate.service
 sudo systemctl restart logrotate.timer
 
@@ -196,9 +211,6 @@ sudo systemctl restart logrotate.timer
 sync; echo 1 > /proc/sys/vm/drop_caches 
 sync; echo 2 > /proc/sys/vm/drop_caches 
 sync; echo 3 > /proc/sys/vm/drop_caches
-
-# pretty json log
-tail -n 1000 -f /mina/.mina-config/mina.log | ./fblog -c metadata -F '$key'
 
 ```
 

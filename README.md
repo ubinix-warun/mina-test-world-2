@@ -10,8 +10,8 @@
   > ✅ [Berkeley Testnet Release 2.0.0rampup5 (ITN)](https://github.com/MinaProtocol/mina/releases/tag/2.0.0rampup5)
 * Upgrade to a new Mina Node version within 24 hours if required
 * Ensure a high uptime % during the testing (a minimum of 90% uptime is required) as monitored by the snark-work-based uptime system
-  > 🟩🟩🟩🟨🟨🟨🟨🟨🟧🟧🟧🟨🟩🟩🟨🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
-⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ [18/45D]
+  > 🟩🟩🟩🟨🟨🟨🟨🟨🟧🟧🟧🟨🟩🟩🟨🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
+⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ [19/45D]
 * The Mina Nodes should be configured to restart automatically on crash and to persist the configuration directory across restarts
   > ✅ There will be random node restarts via the orchestrator once every 6 hours.
 * The Block Producer is expected to raise any abnormal behaviour during the protocol performance testing on Github, using the labels “Testworld-2-0-protocol-performance-testing” and “Testworld-2-0-block-producer”

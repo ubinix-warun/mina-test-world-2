@@ -12,7 +12,7 @@ sudo apt-get install -y mina-berkeley=2.0.0rampup6-4061884
 # sudo apt-get install -y mina-berkeley=2.0.0rampup5-55b7818
 ```
 
-FYI, Recommend to use Debian 11 (bullseye)
+FYI, Recommend to use Debian 11 (bullseye) [AWS Debian 11](https://aws.amazon.com/marketplace/pp/prodview-l5gv52ndg5q6i)
 
 ## Setup user and secret keys.
 

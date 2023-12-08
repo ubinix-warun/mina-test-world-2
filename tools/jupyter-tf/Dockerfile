@@ -21,8 +21,11 @@ https://apt.kubernetes.io/ kubernetes-xenial main" | \
  tee /etc/apt/sources.list.d/kubernetes.list
  
 RUN apt-get update -y
-RUN apt-get install -y kubectl
+RUN apt-get install -y kubectl gettext-base
 
+RUN curl -sfL -o /usr/local/bin/kyml https://github.com/frigus02/kyml/releases/download/v20210610/kyml_20210610_linux_amd64 && chmod +x /usr/local/bin/kyml
+RUN curl -sfL -o /usr/local/bin/jq https://github.com/jqlang/jq/releases/download/jq-1.7/jq-linux-amd64 && chmod +x /usr/local/bin/jq
+RUN curl -sfL -o /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64  && chmod +x /usr/local/bin/yq
 
 ENV APP_HOME /app
 WORKDIR ${APP_HOME}

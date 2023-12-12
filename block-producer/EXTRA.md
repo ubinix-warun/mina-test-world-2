@@ -72,6 +72,25 @@ sudo vi /opt/aws/amazon-cloudwatch-agent/bin/config.json
 ```
 
 ```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "cloudwatch:PutMetricData",
+                "logs:CreateLogGroup",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+```
 aws configure
 
 AWS Access Key ID [None]:

@@ -1,12 +1,15 @@
+# Extra for Node Ops. 
 
-# Setup CloudWatch Agent
+## Setup CloudWatch Agent on EC2.
 
-```
+### Install gpg (verify deb package)
+```bash
 sudo apt install gpg
 
 ```
 
-```
+### Download and install Agent.
+```bash
 wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
 
 wget https://s3.amazonaws.com/amazoncloudwatch-agent/assets/amazon-cloudwatch-agent.gpg
@@ -26,9 +29,14 @@ sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
 
 ```
 
-```
+### Config Agent, set json-log path.
+```bash
 sudo vi /opt/aws/amazon-cloudwatch-agent/bin/config.json
 
+```
+
+* Paste and edit config. 
+```json
 {
   "agent": {
     "metrics_collection_interval": 60,
@@ -71,7 +79,8 @@ sudo vi /opt/aws/amazon-cloudwatch-agent/bin/config.json
 
 ```
 
-```
+### Gen IAM policy and link user & api_key.
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -90,18 +99,19 @@ sudo vi /opt/aws/amazon-cloudwatch-agent/bin/config.json
 }
 ```
 
-```
+### Config aws-cli with api_key.
+```bash
 aws configure
 
-AWS Access Key ID [None]:
-AWS Secret Access Key [None]:
+AWS Access Key ID [None]: <AWS_ID>
+AWS Secret Access Key [None]: <AWS_SECRET>
 Default region name [None]: ap-northeast-1
 Default output format [None]: json
 
 ```
 
-
-```
+### Set Agent credential. 
+```bash
 sudo tee -a /opt/aws/amazon-cloudwatch-agent/etc/common-config.toml <<EOF
 [credentials]
     shared_credential_profile = "default"
@@ -110,15 +120,15 @@ EOF
 
 ```
 
-
-```
+### Fetch agent's config with ctl.
+```bash
 sudo amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 \
   -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
 
 ```
 
-
-```
+### Etc. ctl and debugging.
+```bash
 sudo amazon-cloudwatch-agent-ctl -a start
 sudo amazon-cloudwatch-agent-ctl -a stop
 sudo amazon-cloudwatch-agent-ctl -a status
@@ -128,11 +138,6 @@ less /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
 ```
 
 
-```
+## Deploy Lambda Subscription Filter for CloudWatch Logs 
 
-    "logs:CreateLogStream",
-    "logs:CreateLogGroup",
-    "logs:PutLogEvents",
-    "cloudwatch:PutMetricData"
-
-```
+TBD.

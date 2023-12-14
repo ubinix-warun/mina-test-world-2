@@ -3,7 +3,7 @@
 
 ## Install MINA Berkeley for TestWorld 2.0 
 
-```
+```bash
 sudo rm /etc/apt/sources.list.d/mina*.list
 echo "deb [trusted=yes] http://packages.o1test.net/ bullseye rampup" | \
 	sudo tee /etc/apt/sources.list.d/mina-rampup.list
@@ -17,7 +17,7 @@ FYI, Recommend to use Debian 11 (bullseye) [AWS Debian 11](https://aws.amazon.co
 
 ## Setup user and secret keys.
 
-```
+```bash
 sudo adduser mina 
 # set password your mina
 
@@ -31,7 +31,7 @@ sudo chmod 700 /mina/keys
 
 ### Import account key to /mina/keys/my-wallet
 
-```
+```bash
 sudo nano /mina/keys/my-wallet
 sudo chmod 600 /mina/keys/my-wallet
 
@@ -42,7 +42,7 @@ sudo nano /mina/keys/my-wallet.pub
 
 ### Generate libp2p keys on /mina/keys/keys
 
-```
+```bash
 sudo chown mina:mina /mina -R
 
 sudo su mina
@@ -59,7 +59,7 @@ exit
 
 ## Config. MINA daemon and Setting pass key.
 
-```
+```bash
 sudo tee /usr/lib/systemd/system/mina.service > /dev/null << EOF
 [Unit]
 Description=Mina Daemon Service
@@ -106,7 +106,7 @@ EOF
 
  > Enable port 3089 for create transaction generation and stress test the network. 
 
-```
+```bash
 sudo systemctl daemon-reload
 sudo systemctl enable mina
 sudo loginctl enable-linger
@@ -118,7 +118,7 @@ sudo systemctl status mina
 
 ## Show MINA node status
 
-```
+```bash
 mina client status
 
 --
@@ -187,7 +187,7 @@ Metrics:
 
 ## Show pretty JSON log with fblog
 
-```
+```bash
 wget https://github.com/brocode/fblog/releases/download/v4.4.0/fblog
 chmod +x fblog
 sudo mv fblog /usr/local/bin
@@ -198,7 +198,7 @@ tail -n 1000 -f /mina/.mina-config/mina.log | fblog -c metadata -F '$key'
 
 ## (Extra) config log and run journalctl 1d.
 
-```
+```bash
 # clean journalctl
 journalctl --vacuum-time=1d
 

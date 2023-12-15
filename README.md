@@ -10,7 +10,7 @@
   > ✅ [Berkeley Testnet Release 2.0.0rampup7 (ITN RC3)](https://github.com/MinaProtocol/mina/releases/tag/2.0.0rampup7) <br/>
   > ✅ [Berkeley Testnet Release 2.0.0rampup6 (ITN RC2)](https://github.com/MinaProtocol/mina/releases/tag/2.0.0rampup6) <br/>
   > ✅ [Berkeley Testnet Release 2.0.0rampup5 (ITN)](https://github.com/MinaProtocol/mina/releases/tag/2.0.0rampup5) <br/><br/>
-  > ✅✅ [Run your nodes with --itn-max-logs 10000 flag](https://github.com/MinaProtocol/mina/releases/tag/2.0.0rampup7)
+  > ✅✅ [Run your nodes with --itn-max-logs 10000 flag](https://github.com/MinaProtocol/mina/releases/tag/2.0.0rampup7) <br/>
   > ✅✅ [Removing the --max-connections 200 flag](https://github.com/o1-labs/docs2/pull/719)
 * Upgrade to a new Mina Node version within 24 hours if required
 * Ensure a high uptime % during the testing (a minimum of 90% uptime is required) as monitored by the snark-work-based uptime system

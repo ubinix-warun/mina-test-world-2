@@ -94,7 +94,7 @@ Cg/8l+JleVH8yNwXkoLawbfLHD93Do4KbttyBS7m9hQ= \
 --peer-list-url  https://storage.googleapis.com/seed-lists/testworld-2-0_seeds.txt --generate-genesis-proof  true \
 --block-producer-key /mina/keys/my-wallet --node-status-url https://nodestats-itn.minaprotocol.tools/submit/stats  \
 --node-error-url https://nodestats-itn.minaprotocol.tools/submit/stats \
---file-log-rotations 500
+--file-log-rotations 500 --itn-max-logs 10000
 ExecStop=/usr/local/bin/mina client stop-daemon
 
 [Install]

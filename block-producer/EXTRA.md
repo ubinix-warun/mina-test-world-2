@@ -138,6 +138,6 @@ less /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
 ```
 
 
-## Deploy Lambda Subscription Filter for CloudWatch Logs 
+## Deploy Lambda Subscription Filter.
 
 TBD.

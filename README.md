@@ -14,15 +14,15 @@
   > ✅✅ [Removing the --max-connections 200 flag](https://github.com/o1-labs/docs2/pull/719)
 * Upgrade to a new Mina Node version within 24 hours if required
 * Ensure a high uptime % during the testing (a minimum of 90% uptime is required) as monitored by the snark-work-based uptime system
-  > **Baseline** D59 <br/>
+  > **Baseline** D60 <br/>
   > 🟩🟩🟩🟨🟨🟨🟨🟨🟧🟧 <br/>
   > 🟧🟨🟩🟩🟨🟩🟩🟩🟩🟩 <br/>
   > 🟩🟨🟩🟩🟩🟩🟩🟩🟩🟧 <br/>
   > 🟩🟩🟩🟩🟩🟩🟧🟩🟩🟩 <br/>
   > 🟩🟩🟩🟨🟨🟩🟩🟩🟩🟩 <br/>
   > 🟨🟨🟩🟩🟩🟩🟩🟩🟧🟧 <br/>
-  >  **Extension** D0<br/>
-  > ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ <br/>
+  >  **Extension** D1<br/>
+  > 🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜ <br/>
   > ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ <br/>
   > ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ <br/>
   > ⬜⬜⬜⬜⬜

@@ -140,4 +140,115 @@ less /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
 
 ## Deploy Lambda Subscription Filter.
 
-TBD.
+### Create CDK project and setup aws-cli with AWS_SECRET
+
+```bash
+mkdir cloudwatch-line-notify
+cd cloudwatch-line-notify
+
+cdk init app -l typescript
+
+```
+
+* Set env for aws & [execute cdk stack](https://gist.github.com/ubinix-warun/4eafb6e26d3ed1dc5a42bfec47e48e7f#file-cloudwatch-line-notify-ts).
+
+```typescript
+...
+
+new CloudwatchLineNotifyStack(app, 'CloudwatchLineNotifyStack', {
+
+  env: {
+     account: '<AWS_ACCOUNT>', 
+     region: '<AWS_REGION>' 
+  },
+
+});
+```
+
+### Link CloudWatch and [SubscriptionFilter](https://gist.github.com/ubinix-warun/4eafb6e26d3ed1dc5a42bfec47e48e7f#file-cloudwatch-line-notify-stack-ts) Lambda fn.
+
+```typescript
+...
+
+export class CloudwatchLineNotifyStack extends cdk.Stack {
+  public readonly watchFn: lambda.Function;
+
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+
+    const watchFn = new NodejsFunction(this, 'watchLambda', {
+      entry: 'lambda/index.ts',
+      handler: 'handler',
+      runtime: lambda.Runtime.NODEJS_18_X,
+    });
+    
+    //link an AWS CloudWatch log group for receiving logs
+    const logGroup = logs.LogGroup.fromLogGroupArn(this, '<>', 
+      '<>');
+    ...
+
+    new logs.SubscriptionFilter(this, 'WatchSubscription', {
+      logGroup,
+      destination: new destinations.LambdaDestination(watchFn),
+      filterPattern: logs.FilterPattern.any(
+        logs.FilterPattern.stringValue("$.message","=","Successfully produced a new block")
+      ),
+      filterName: 'ProducedNewBlock',
+    }); 
+     
+  }
+}
+```
+
+### Handle Log events on [Lambda fn](https://gist.github.com/ubinix-warun/4eafb6e26d3ed1dc5a42bfec47e48e7f#file-index-ts).
+
+```typescript
+...
+
+const notify = new Notify({
+	token: "<LINE_NOTIFY_TOKEN>"
+})
+
+export const handler: CloudWatchLogsHandler = (
+    event: CloudWatchLogsEvent,
+    _context: Context,
+    callback: Callback
+  ): void => {
+    console.log('EVENT: \n' + JSON.stringify(event, null, 2));
+    
+    const decoded = Buffer.from(event.awslogs.data, "base64");
+    zlib.gunzip(decoded, (e, result) => {
+        if (e) {
+          callback(e, null);
+        } else {
+          const json: CloudWatchLogsDecodedData = JSON.parse(
+            result.toString("ascii")
+          );
+          
+          json.logEvents.forEach(async (event) => {
+            const jsonlog = JSON.parse(event.message);
+            console.log("DETAIL: (json log)", JSON.stringify(jsonlog, null, 2));
+            
+            ...
+        
+            const consensus_state = jsonlog.metadata.breadcrumb.validated_transition.data.protocol_state.body.consensus_state
+            const msg = `${jsonlog.message} - Block height: ${consensus_state.blockchain_length} Epoch: ${consensus_state.epoch_count}`;
+            try {
+                const resp = await notify.send({
+                    message:  msg,
+                 });
+                console.log(resp);
+
+            } catch (error) {
+                console.log(error);
+
+            }
+
+          });
+
+          callback(null);
+        }
+    });
+
+};
+```

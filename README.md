@@ -21,9 +21,9 @@
   > 🟩🟩🟩🟩🟩🟩🟧🟩🟩🟩 <br/>
   > 🟩🟩🟩🟨🟨🟩🟩🟩🟩🟩 <br/>
   > 🟨🟨🟩🟩🟩🟩🟩🟩🟧🟧 <br/>
-  >  **Extension** D10<br/>
+  >  **Extension** D11<br/>
   > 🟨🟩🟩🟩🟧🟧🟧🟩🟩🟩 <br/>
-  > ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ <br/>
+  > 🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜ <br/>
   > ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ <br/>
   > ⬜⬜⬜⬜⬜
 * The Mina Nodes should be configured to restart automatically on crash and to persist the configuration directory across restarts

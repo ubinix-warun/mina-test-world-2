@@ -21,10 +21,10 @@
   > 🟩🟩🟩🟩🟩🟩🟧🟩🟩🟩 <br/>
   > 🟩🟩🟩🟨🟨🟩🟩🟩🟩🟩 <br/>
   > 🟨🟨🟩🟩🟩🟩🟩🟩🟧🟧 <br/>
-  >  **Extension** D25<br/>
+  >  **Extension** D26<br/>
   > 🟨🟩🟩🟩🟧🟧🟧🟩🟩🟩 <br/>
   > 🟩🟩🟩🟨🟨🟩🟩🟩🟨🟧 <br/>
-  > 🟧🟥🟧🟩🟩⬜⬜⬜⬜⬜ <br/>
+  > 🟧🟥🟧🟩🟩🟩⬜⬜⬜⬜ <br/>
   > ⬜⬜⬜⬜⬜⬜⬜⬜
 * The Mina Nodes should be configured to restart automatically on crash and to persist the configuration directory across restarts
   > ✅ There will be random node restarts via the orchestrator once every 6 hours.

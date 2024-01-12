@@ -7,6 +7,7 @@
 * Run 2 Mina nodes on a cloud provider or hosted solution of your choice from the start until the end of the protocol performance testing
   > ✅✅ 
 * Run the latest Mina Node version (the Latest Mina Node version will be shared on Discord before the protocol performance testing starts) with all the required flags
+  > ⬜ [Berkeley Testnet Release 2.0.0rampup8 (ITN RC4)](https://github.com/MinaProtocol/mina/releases/tag/2.0.0rampup8) <br/>
   > ✅ [Berkeley Testnet Release 2.0.0rampup7 (ITN RC3)](https://github.com/MinaProtocol/mina/releases/tag/2.0.0rampup7) <br/>
   > ✅ [Berkeley Testnet Release 2.0.0rampup6 (ITN RC2)](https://github.com/MinaProtocol/mina/releases/tag/2.0.0rampup6) <br/>
   > ✅ [Berkeley Testnet Release 2.0.0rampup5 (ITN)](https://github.com/MinaProtocol/mina/releases/tag/2.0.0rampup5) <br/><br/>

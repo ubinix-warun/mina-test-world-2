@@ -8,7 +8,8 @@ sudo rm /etc/apt/sources.list.d/mina*.list
 echo "deb [trusted=yes] http://packages.o1test.net/ bullseye rampup" | \
 	sudo tee /etc/apt/sources.list.d/mina-rampup.list
 sudo apt-get update
-sudo apt-get install -y mina-berkeley=2.0.0rampup7-4a0fff9
+sudo apt-get install -y mina-berkeley=2.0.0rampup8-56fa1db
+# sudo apt-get install -y mina-berkeley=2.0.0rampup7-4a0fff9
 # sudo apt-get install -y mina-berkeley=2.0.0rampup6-4061884
 # sudo apt-get install -y mina-berkeley=2.0.0rampup5-55b7818
 ```
